@@ -25,4 +25,28 @@ public class EditCreatEventScreen extends BaseScreen{
     MobileElement confirmCreation;
 
 
+    public EditCreatEventScreen fillCreationForm(Event event){
+        type(title, event.title());
+        type(type, event.type());
+        hideKeyboard();
+        int breaks = event.breaks();
+        if(breaks > 0){
+            for(int i = 0; i<= breaks-1; i++){
+                breakPlusBtn.click();
+            }
+        }
+        wageEdit.click();
+        type(wageInput, String.valueOf(event.ammount()));
+        hideKeyboard();
+        wageSave.click();
+        return this;
+
+
+    }
+    public HomeScreen confirmCreation(){
+        confirmCreation.click();
+        return new HomeScreen(driver);
+    }
+
+
 }

@@ -17,7 +17,21 @@ public class HomeScreen extends BaseScreen{
         super(driver);
     }
 
+    public boolean isFabButton(){
+        should(fabAdd,15);
+        return true;
 
+    }
+    public HomeScreen cheekFab(){
+        should(fabAdd,15);
+        return this;
+    }
+
+    public EditCreatEventScreen initCreationNew(){
+        fabAdd.click();
+        fabAddEvent.click();
+        return new EditCreatEventScreen(driver);
+    }
 
 }
 

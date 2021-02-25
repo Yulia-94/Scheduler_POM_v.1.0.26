@@ -17,6 +17,19 @@ public class LoginScreen extends BaseScreen{
         super(driver);
     }
 
+    public LoginScreen fillEmail(String email){
+        type(emailEditText, email);
+        return this;
+    }
 
+    public LoginScreen fillPassword(String password){
+        type(passwordEditText, password);
+        return this;
+    }
 
+    public WizardScreen clickLogin(){
+        hideKeyboard();
+        loginButton.click();
+        return new WizardScreen(driver);
+    }
 }
